@@ -15,6 +15,7 @@
 
 <body>
   <div class="container py-2">
+    <p id="error" class="hide error">Debes ingresar todos los datos solicitados</p>
     <form>
       <div>Nosotros
         <input type="number" id="bnosotros" placeholder="Base nosotros" class="form-control my-2">
@@ -24,7 +25,7 @@
         <input type="number" id="bellos" placeholder="Base ellos" class="form-control my-2">
         <input type="number" id="pellos" placeholder="Puntaje ellos" class="form-control my-2">
       </div>
-      <button id="boton" class="btn btn-success btn-block my-2" type="reset" onclick="capturar()
+      <button id="boton" class="btn btn-success btn-block my-2" type="button" onclick="capturar()
       ">Agregar</button>
     </form>
   </div>
