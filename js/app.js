@@ -21,6 +21,9 @@ function capturar(e) {
     ellosCapturarP == ""
   ) {
     document.getElementById("error").classList.remove("hide");
+    setTimeout(function () {
+      document.getElementById("error").classList.add("hide");
+    }, 3000);
   } else {
     document.getElementById("error").classList.add("hide");
     nuevoSujeto = new Persona(
@@ -38,7 +41,7 @@ var baseDatos = [];
 
 function agregar() {
   baseDatos.push(nuevoSujeto);
-  // console.log(baseDatos);
+
   mano++;
   totalNosotros += nuevoSujeto.nosotrosB + nuevoSujeto.nosotrosP;
   totalEllos += nuevoSujeto.ellosB + nuevoSujeto.ellosP;
