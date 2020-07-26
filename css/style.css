@@ -29,6 +29,20 @@ a {
   background: #fff;
 }
 
+.titulo {
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+nav.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav.menu a {}
+
 #totales {
   background-color: #343a40;
   color: #fff;
