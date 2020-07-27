@@ -41,7 +41,14 @@ nav.menu {
   justify-content: space-between;
 }
 
-nav.menu a {}
+.copy {
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.6em;
+  border-top: 1px solid #ddd;
+  margin-top: 5.75em;
+  padding-top: 0.5em;
+}
 
 #totales {
   background-color: #343a40;
