@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  background: #eaeded;
+  font-family: Arial, sans-serif;
+  background-image: url(../images/burako.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  padding-top: 15px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 90%;
+  max-width: 400px;
+  background: #fff;
+}
+
+.titulo {
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+nav.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.copy {
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.6em;
+  border-top: 1px solid #ddd;
+  margin-top: 5.75em;
+  padding-top: 0.5em;
+}
+
+#totales {
+  background-color: #343a40;
+  color: #fff;
+  padding: .75em;
+  margin: .75em 0;
+  margin-top: -.75em;
+}
+
+.error {
+  width: 100%;
+  background-color: crimson;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+.hide {
+  display: none;
+}
