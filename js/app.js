@@ -62,22 +62,31 @@ function agregar() {
 
 btnBorrar.addEventListener("click", (e) => {
   e.preventDefault();
-  confirm("¿Estás seguro de limpiar los datos del juego?");
-  localStorage.clear();
-  mano = 0;
-  totalNosotros = 0;
-  totalEllos = 0;
-  document.getElementById("tn").innerHTML = totalNosotros;
-  document.getElementById("te").innerHTML = totalEllos;
-  document.getElementById("tabla").innerHTML = "";
+  puntos = JSON.parse(localStorage.getItem("Puntos"));
+  if (puntos) {
+    confirm("¿Estás seguro de limpiar los datos del juego?");
+    localStorage.clear();
+    mano = 0;
+    totalNosotros = 0;
+    totalEllos = 0;
+    document.getElementById("tn").innerHTML = totalNosotros;
+    document.getElementById("te").innerHTML = totalEllos;
+    document.getElementById("tabla").innerHTML = "";
+  } else {
+    alert("No hay datos registrados para borrar");
+  }
 });
 
 btnCargar.addEventListener("click", (e) => {
   e.preventDefault();
   puntos = JSON.parse(localStorage.getItem("Puntos"));
 
-  for (i = 0; i < puntos.length; i++) {
-    console.log("puntos: " + puntos[i].nosotrosB + " vuelta: " + i);
+  if (puntos) {
+    for (i = 0; i < puntos.length; i++) {
+      console.log("puntos: " + puntos[i].nosotrosB + " vuelta: " + i);
+    }
+  } else {
+    alert("No hay datos registrados para recuperar");
   }
 });
 
