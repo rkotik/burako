@@ -1,8 +1,6 @@
 mano = 0;
 totalNosotros = 0;
 totalEllos = 0;
-document.getElementById("tn").innerHTML = totalNosotros;
-document.getElementById("te").innerHTML = totalEllos;
 function capturar(e) {
   function Persona(nosotrosB, nosotrosP, ellosB, ellosP) {
     this.nosotrosB = isNaN(parseInt(nosotrosB)) ? 0 : parseInt(nosotrosB);
@@ -56,19 +54,4 @@ function agregar() {
   document.getElementById("pnosotros").value = "";
   document.getElementById("bellos").value = "";
   document.getElementById("pellos").value = "";
-  console.log(baseDatos);
-  localStorage.setItem("Puntos", JSON.stringify(baseDatos));
-  puntos = JSON.parse(localStorage.getItem("Puntos"));
-  console.log(puntos);
 }
-
-btnBorrar.addEventListener("click", () => {
-  confirm("¿Estás seguro de limpiar los datos del juego?");
-  localStorage.clear();
-  mano = 0;
-  totalNosotros = 0;
-  totalEllos = 0;
-  document.getElementById("tn").innerHTML = totalNosotros;
-  document.getElementById("te").innerHTML = totalEllos;
-  document.getElementById("tabla").innerHTML = "";
-});
