@@ -58,8 +58,6 @@ function agregar() {
   document.getElementById("pellos").value = "";
   console.log(baseDatos);
   localStorage.setItem("Puntos", JSON.stringify(baseDatos));
-  puntos = JSON.parse(localStorage.getItem("Puntos"));
-  console.log(puntos);
 }
 
 btnBorrar.addEventListener("click", (e) => {
@@ -73,3 +71,16 @@ btnBorrar.addEventListener("click", (e) => {
   document.getElementById("te").innerHTML = totalEllos;
   document.getElementById("tabla").innerHTML = "";
 });
+
+btnCargar.addEventListener("click", (e) => {
+  e.preventDefault();
+  puntos = JSON.parse(localStorage.getItem("Puntos"));
+
+  for (i = 0; i < puntos.length; i++) {
+    console.log("puntos: " + puntos[i].nosotrosB + " vuelta: " + i);
+  }
+});
+
+// crear funciones borrarpantalla y borrarpuntos
+// utilizarla al cargar datos existentes y para borrar datos
+// tratar de llevar la mayor cantidad de operaciones a funciones por sus repeticiones y optimizar el codigo
