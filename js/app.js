@@ -62,7 +62,8 @@ function agregar() {
   console.log(puntos);
 }
 
-btnBorrar.addEventListener("click", () => {
+btnBorrar.addEventListener("click", (e) => {
+  e.preventDefault();
   confirm("¿Estás seguro de limpiar los datos del juego?");
   localStorage.clear();
   mano = 0;
