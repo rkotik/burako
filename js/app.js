@@ -1,8 +1,20 @@
+// Definiciones de variables
+var baseDatos = [];
 mano = 0;
 totalNosotros = 0;
 totalEllos = 0;
-document.getElementById("tn").innerHTML = totalNosotros;
-document.getElementById("te").innerHTML = totalEllos;
+tNosotros = document.querySelector("#tn");
+tEllos = document.querySelector("#te");
+bNosotros = document.querySelector("#bnosotros");
+pNosotros = document.querySelector("#pnosotros");
+bEllos = document.querySelector("#bellos");
+pEllos = document.querySelector("#pellos");
+
+// Juego
+tNosotros.innerHTML = totalNosotros;
+tEllos.innerHTML = totalEllos;
+
+// Captura los datos cargados
 function capturar(e) {
   function Persona(nosotrosB, nosotrosP, ellosB, ellosP) {
     this.nosotrosB = isNaN(parseInt(nosotrosB)) ? 0 : parseInt(nosotrosB);
@@ -11,10 +23,10 @@ function capturar(e) {
     this.ellosP = isNaN(parseInt(ellosP)) ? 0 : parseInt(ellosP);
   }
 
-  var nosotrosCapturarB = document.getElementById("bnosotros").value;
-  var nosotrosCapturarP = document.getElementById("pnosotros").value;
-  var ellosCapturarB = document.getElementById("bellos").value;
-  var ellosCapturarP = document.getElementById("pellos").value;
+  var nosotrosCapturarB = bNosotros.value;
+  var nosotrosCapturarP = pNosotros.value;
+  var ellosCapturarB = bEllos.value;
+  var ellosCapturarP = pEllos.value;
 
   if (
     nosotrosCapturarB == "" ||
@@ -22,24 +34,21 @@ function capturar(e) {
     ellosCapturarB == "" ||
     ellosCapturarP == ""
   ) {
-    document.getElementById("error").classList.remove("hide");
+    document.querySelector("#error").classList.remove("hide");
     setTimeout(function () {
-      document.getElementById("error").classList.add("hide");
+      document.querySelector("#error").classList.add("hide");
     }, 3000);
   } else {
-    document.getElementById("error").classList.add("hide");
+    document.querySelector("#error").classList.add("hide");
     nuevoSujeto = new Persona(
       nosotrosCapturarB,
       nosotrosCapturarP,
       ellosCapturarB,
       ellosCapturarP
     );
-    // console.log(nuevoSujeto);
     agregar();
   }
 }
-
-var baseDatos = [];
 
 function agregar() {
   baseDatos.push(nuevoSujeto);
@@ -50,17 +59,19 @@ function agregar() {
   document.getElementById(
     "tabla"
   ).innerHTML += `<tr><td>${mano}</td><td>${nuevoSujeto.nosotrosB}/${nuevoSujeto.nosotrosP}</td><td>${nuevoSujeto.ellosB}/${nuevoSujeto.ellosP}</td></tr>`;
-  document.getElementById("tn").innerHTML = totalNosotros;
-  document.getElementById("te").innerHTML = totalEllos;
-  document.getElementById("bnosotros").value = "";
-  document.getElementById("pnosotros").value = "";
-  document.getElementById("bellos").value = "";
-  document.getElementById("pellos").value = "";
-  console.log(baseDatos);
+  tNosotros.innerHTML = totalNosotros;
+  tEllos.innerHTML = totalEllos;
+  bNosotros.value = "";
+  pNosotros.value = "";
+  bEllos.value = "";
+  pEllos.value = "";
   localStorage.setItem("Puntos", JSON.stringify(baseDatos));
 }
 
-btnBorrar.addEventListener("click", (e) => {
+btnBorrar.addEventListener("click", borrarDatos);
+btnCargar.addEventListener("click", cargarDatos);
+
+function borrarDatos(e) {
   e.preventDefault();
   puntos = JSON.parse(localStorage.getItem("Puntos"));
   if (puntos) {
@@ -69,18 +80,17 @@ btnBorrar.addEventListener("click", (e) => {
     mano = 0;
     totalNosotros = 0;
     totalEllos = 0;
-    document.getElementById("tn").innerHTML = totalNosotros;
-    document.getElementById("te").innerHTML = totalEllos;
-    document.getElementById("tabla").innerHTML = "";
+    tNosotros.innerHTML = totalNosotros;
+    tEllos.innerHTML = totalEllos;
+    document.querySelector("#tabla").innerHTML = "";
   } else {
     alert("No hay datos registrados para borrar");
   }
-});
+}
 
-btnCargar.addEventListener("click", (e) => {
+function cargarDatos(e) {
   e.preventDefault();
   puntos = JSON.parse(localStorage.getItem("Puntos"));
-
   if (puntos) {
     for (i = 0; i < puntos.length; i++) {
       console.log("puntos: " + puntos[i].nosotrosB + " vuelta: " + i);
@@ -88,8 +98,6 @@ btnCargar.addEventListener("click", (e) => {
   } else {
     alert("No hay datos registrados para recuperar");
   }
-});
+}
 
-// crear funciones borrarpantalla y borrarpuntos
-// utilizarla al cargar datos existentes y para borrar datos
 // tratar de llevar la mayor cantidad de operaciones a funciones por sus repeticiones y optimizar el codigo
