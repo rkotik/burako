@@ -92,9 +92,22 @@ function cargarDatos(e) {
   e.preventDefault();
   puntos = JSON.parse(localStorage.getItem("Puntos"));
   if (puntos) {
+    tpn = 0;
+    tpe = 0;
     for (i = 0; i < puntos.length; i++) {
-      console.log("puntos: " + puntos[i].nosotrosB + " vuelta: " + i);
+      pnb = puntos[i].nosotrosB;
+      pnp = puntos[i].nosotrosP;
+      peb = puntos[i].ellosB;
+      pep = puntos[i].ellosP;
+      tpn = tpn + pnb + pnp;
+      tpe = tpe + peb + pep;
+      document.getElementById("tabla").innerHTML += `<tr><td>${parseInt(
+        i + 1
+      )}</td><td>${pnb}/${pnp}</td><td>${peb}/${pep}</td></tr>`;
     }
+
+    tNosotros.innerHTML = tpn;
+    tEllos.innerHTML = tpe;
   } else {
     alert("No hay datos registrados para recuperar");
   }
