@@ -92,6 +92,7 @@ function cargarDatos(e) {
   e.preventDefault();
   puntos = JSON.parse(localStorage.getItem("Puntos"));
   if (puntos) {
+    document.querySelector("#tabla").innerHTML = "";
     tpn = 0;
     tpe = 0;
     for (i = 0; i < puntos.length; i++) {
