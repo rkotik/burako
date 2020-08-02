@@ -30,10 +30,10 @@ a {
 }
 
 .titulo {
-  font-weight: bold;
   text-align: center;
   border-radius: 5px;
   padding: 5px;
+  font-family: 'Lobster', cursive;
 }
 
 nav.menu {
